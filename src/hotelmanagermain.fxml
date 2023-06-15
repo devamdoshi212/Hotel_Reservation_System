@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HotelManagerController">
+   <children>
+      <Label ellipsisString="" layoutX="133.0" layoutY="74.0" prefHeight="82.0" prefWidth="256.0" text="Hotel Manager">
+         <font>
+            <Font name="MV Boli" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="hotelManagerSignUp" layoutX="178.0" layoutY="219.0" mnemonicParsing="false" onAction="#hotelManagerSignUp" prefHeight="45.0" prefWidth="143.0" text="SignUp">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button fx:id="hotelManagerLogin" layoutX="178.0" layoutY="300.0" mnemonicParsing="false" onAction="#hotelManagerLogin" prefHeight="45.0" prefWidth="143.0" text="Login">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
