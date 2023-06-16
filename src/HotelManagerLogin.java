@@ -45,7 +45,7 @@ public class HotelManagerLogin {
         {
             Status.setText("Login Success");
             afterhotelmanagerlogin manager2 = new afterhotelmanagerlogin();
-            manager2.managerupdate(event, null, 0);
+            manager2.managerupdate(event, userName.getText(),d5.db_hotel_manager_id);
         }
         else
         {

@@ -88,6 +88,8 @@ public class afterhotelmanagerlogin {
             availableRoomsLabel.setFont(labelFont);
     
             TextField availableRoomsTextField = new TextField();
+            //set 
+            availableRoomsTextField.setText(Integer.toString(loginClient.db_aroom));
             availableRoomsTextField.setLayoutX(267.0);
             availableRoomsTextField.setLayoutY(27.0);
             availableRoomsTextField.setPrefHeight(33.0);
@@ -106,6 +108,8 @@ public class afterhotelmanagerlogin {
             pricePerNightLabel.setFont(labelFont);
     
             TextField pricePerNightTextField = new TextField();
+            //set
+            pricePerNightTextField.setText(Integer.toString(loginClient.db_price));
             pricePerNightTextField.setLayoutX(268.0);
             pricePerNightTextField.setLayoutY(25.0);
             pricePerNightTextField.setPrefHeight(33.0);
@@ -124,8 +128,11 @@ public class afterhotelmanagerlogin {
             roomTypeLabel.setPrefWidth(158.0);
             roomTypeLabel.setFont(labelFont);
     
-            String st[] ={"Delux","Normal"}; 
+            String st[] ={"Normal","Delux"}; 
             ChoiceBox roomTypeChoiceBox = new ChoiceBox (FXCollections.observableArrayList(st));
+            //set
+            roomTypeChoiceBox.setValue(st[loginClient.db_roomtype-1]);
+            storeroomtype=loginClient.db_roomtype;
             roomTypeChoiceBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue ov, Number value, Number new_value)
             {
@@ -197,11 +204,11 @@ public class afterhotelmanagerlogin {
                                     // Database d4 = new Database();
                                     // // hotelid = d4.retriveHotelId(userId);
                                     // d4.dbconnect_Hotel_Room_details(hotelid, price, aroom, storeroomtype);
-
-                                    dailogbox d1 = new dailogbox();
-                                    d1.afterroomdetails();
-
-                                    primaryStage.close();
+                                    // dailogbox d1 = new dailogbox();
+                                    // d1.afterroomdetails();
+                                    
+                                    // primaryStage.close();
+                                    System.out.println(aroom+" "+price+" "+storeroomtype);
                                 }
                                 else
                                 {
