@@ -19,7 +19,7 @@ public class App extends Application {
         }
         catch(Exception e)
         {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 

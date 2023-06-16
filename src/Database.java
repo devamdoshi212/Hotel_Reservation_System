@@ -15,6 +15,7 @@ public class Database{
     String url = "jdbc:mysql://localhost/hotel_reservation_system";
     String username = "root";
     String password = "";
+
     int login_verify=0;
     int pnumber_verify=0;
     int hotel_manager_username_verify=0;
@@ -163,13 +164,6 @@ public class Database{
             statement.setString(6, hfilepath);
             statement.setInt(7, userId);
 
-            
-            // File fi=new File("C:\\Programming\\Java_Dev\\Java_Project_1\\src " + hname + ".jpg");
-		    // fs=new FileOutputStream(fi);
-	    	// blob=.getBlob("SavePic");
-	    	// b=blob.getBytes(1, (int)blob.length());
-	    	// fs.write(b);
-
             int rowsAffected = statement.executeUpdate();
             System.out.println("Done"+ rowsAffected);
             
@@ -189,4 +183,37 @@ public class Database{
 
     }
 
+    public int retriveHotelId(String managerid)
+    {
+        String query = "SELECT hotel_id FROM hotel WHERE hotel_manager_id=?";
+        int id;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(query);
+            // statement.setString(1, user);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                id = resultSet.getInt("hotel_manager_id");
+                return id;
+            }
+        }
+        catch (Exception e) {
+            e.getStackTrace();
+            return 0;
+        }
+        return 0;
+    }
+
+    public void dbconnect_Hotel_Room_details()
+    {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            System.out.println("Conection done...");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

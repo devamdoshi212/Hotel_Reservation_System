@@ -22,7 +22,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
@@ -320,8 +323,6 @@ public class HotelManagerSignUp extends Thread{
             availableRoomsTextField.setPrefHeight(33.0);
             availableRoomsTextField.setPrefWidth(149.0);
             pane2.getChildren().addAll(availableRoomsLabel, availableRoomsTextField);
-            //getting value from textfield
-            storeavailableRoomsTextField=availableRoomsTextField.getText();
             
             Pane pane3 = new Pane();
             pane3.setPrefHeight(82.0);
@@ -341,8 +342,6 @@ public class HotelManagerSignUp extends Thread{
             pricePerNightTextField.setPrefWidth(149.0);
     
             pane3.getChildren().addAll(pricePerNightLabel, pricePerNightTextField);
-            //getting value from textfield
-            storepricePerNightTextField=pricePerNightTextField.getText();
 
             Pane pane4 = new Pane();
             pane4.setPrefHeight(69.0);
@@ -360,12 +359,6 @@ public class HotelManagerSignUp extends Thread{
             roomTypeChoiceBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue ov, Number value, Number new_value)
             {
- 
-                // set the text for the label to the selected item
-                //  (st[new_value.intValue()] + " selected");
-                System.out.println(st[new_value.intValue()]);
-                System.out.println(new_value.intValue());
-                System.out.println(new_value);
                 storeroomtype=new_value.intValue()+1;
             }
         });
@@ -411,6 +404,9 @@ public class HotelManagerSignUp extends Thread{
             submitButton.setOnAction(new EventHandler <ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
+                                storeavailableRoomsTextField=availableRoomsTextField.getText();
+                                storepricePerNightTextField=pricePerNightTextField.getText();
+
                     try 
                     {
                         System.out.println("Submmit button clicked!");
@@ -424,11 +420,14 @@ public class HotelManagerSignUp extends Thread{
                             {
                                 if(onlyDigits(storepricePerNightTextField, storepricePerNightTextField.length()))
                                 {
-                                    aroom=Integer.parseInt(storeavailableRoomsTextField);
-                                    price=Integer.parseInt(storepricePerNightTextField);
+                                    status_Label.setText("");
+                                    aroom = Integer.valueOf(storeavailableRoomsTextField);
+                                    price = Integer.valueOf(storepricePerNightTextField);
 
-                                    System.out.println(aroom+" "+price+" "+storeroomtype);
+                                    dailogbox d1 = new dailogbox();
+                                    d1.afterroomdetails();
 
+                                    primaryStage.close();
                                 }
                                 else
                                 {
