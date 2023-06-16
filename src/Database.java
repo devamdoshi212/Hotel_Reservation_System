@@ -19,6 +19,14 @@ public class Database{
     int login_verify=0;
     int pnumber_verify=0;
     int hotel_manager_username_verify=0;
+    int hotel_manager_login_verify=0;
+    int db_hotel_manager_id;
+
+    int db_price;
+    int db_aroom;
+    int db_roomtype;
+
+    String hotel_name;
     String db_name;
     Database(){}
 
@@ -183,19 +191,19 @@ public class Database{
 
     }
 
-    public int retriveHotelId(String managerid)
+    public int retriveHotelId(int managerid)
     {
         String query = "SELECT hotel_id FROM hotel WHERE hotel_manager_id=?";
-        int id;
+        int hotelid;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, username, password);
             PreparedStatement statement = connection.prepareStatement(query);
-            // statement.setString(1, user);
+            statement.setInt(1, managerid);
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()){
-                id = resultSet.getInt("hotel_manager_id");
-                return id;
+                hotelid = resultSet.getInt("hotel_id");
+                return hotelid;
             }
         }
         catch (Exception e) {
@@ -205,15 +213,102 @@ public class Database{
         return 0;
     }
 
-    public void dbconnect_Hotel_Room_details()
+    public void dbconnect_Hotel_Room_details(int hotelid,int price,int aroom,int rtpye)
     {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, username, password);
             System.out.println("Conection done...");
+            String sql = "INSERT INTO hotel_room (hotel_id, price_per_night, is_available, room_type) VALUES (?,?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, hotelid);
+            statement.setInt(2, price);
+            statement.setInt(3, aroom);
+            statement.setInt(4, rtpye);
+
+            int rowsAffected = statement.executeUpdate();
+            System.out.println("Done"+ rowsAffected);
+            System.out.println("Hotel Room Data added successfully");
+            
+            statement.close();
+            connection.close();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
+    public void dbconnect_Hotel_Manager_Login(String user,String pass)
+    {
+        String query = "SELECT * FROM hotel_manager";
+        String db_username;
+        String db_password;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query);
+
+             while(resultSet.next())
+             {
+                db_username = resultSet.getString("username").trim();
+                db_password = resultSet.getString("password").trim();
+                if(db_username.equals(user) && db_password.equals(pass))
+                {
+                    hotel_manager_login_verify=1;
+                    db_hotel_manager_id = resultSet.getInt("hotel_manager_id");
+                    break;
+                }
+                else
+                {
+                    hotel_manager_login_verify=0;
+                }
+             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void retriveHotelName(int managerid)
+    {
+        String query = "SELECT name FROM hotel WHERE hotel_manager_id=?";
+        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, managerid);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                hotel_name = resultSet.getString("name");
+            }
+        }
+        catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
+    public void retriveAllHotelRoomDetails(int managerid)
+    {
+
+        String query = "SELECT * FROM hotel_room WHERE hotel_id=?";
+        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, retriveHotelId(managerid));
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                db_price = resultSet.getInt("price_per_night");
+                db_aroom = resultSet.getInt("is_available");
+                db_roomtype = resultSet.getInt("room_type");
+
+            }
+        }
+        catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
 }

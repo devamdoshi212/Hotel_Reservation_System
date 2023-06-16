@@ -16,7 +16,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class afterhotelmanagersignup {
+public class afterhotelmanagerlogin {
+
      //avail rooms and price validation
     public static boolean onlyDigits(String str, int n)
 	{
@@ -38,10 +39,13 @@ public class afterhotelmanagersignup {
     int price;
     int hotelid;
 
-    //after signup
-    public void roomdetails(ActionEvent event,String hname,int userId) throws Exception
+    //after login
+    //user = username of hotel manager
+    public void managerupdate(ActionEvent event,String user,int managerid) throws Exception
     {
-
+        Database loginClient = new Database();
+        loginClient.retriveHotelName(managerid);
+        loginClient.retriveAllHotelRoomDetails(managerid);
         try {
             Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             BorderPane root = new BorderPane();
@@ -52,7 +56,7 @@ public class afterhotelmanagersignup {
             root.setPrefHeight(477.0);
             root.setPrefWidth(461.0);
     
-            Label hotelNameLabel = new Label(hname);
+            Label hotelNameLabel = new Label(loginClient.hotel_name);
             hotelNameLabel.setAlignment(javafx.geometry.Pos.CENTER);
             hotelNameLabel.setPrefHeight(60.0);
             hotelNameLabel.setPrefWidth(417.0);
@@ -190,9 +194,9 @@ public class afterhotelmanagersignup {
                                     aroom = Integer.valueOf(storeavailableRoomsTextField);
                                     price = Integer.valueOf(storepricePerNightTextField);
 
-                                    Database d4 = new Database();
-                                    hotelid = d4.retriveHotelId(userId);
-                                    d4.dbconnect_Hotel_Room_details(hotelid, price, aroom, storeroomtype);
+                                    // Database d4 = new Database();
+                                    // // hotelid = d4.retriveHotelId(userId);
+                                    // d4.dbconnect_Hotel_Room_details(hotelid, price, aroom, storeroomtype);
 
                                     dailogbox d1 = new dailogbox();
                                     d1.afterroomdetails();
@@ -227,5 +231,4 @@ public class afterhotelmanagersignup {
             System.out.println(e.getMessage());
         }
     }
-
 }

@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 // import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -19,7 +21,7 @@ public class dailogbox {
     public void afterroomdetails()
     {
         Stage primaryStage = new Stage();
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        // primaryStage.initStyle(StageStyle.UNDECORATED);
         BorderPane borderPane = new BorderPane();
         borderPane.setMaxHeight(Double.NEGATIVE_INFINITY);
         borderPane.setMaxWidth(Double.NEGATIVE_INFINITY);
@@ -87,6 +89,7 @@ public class dailogbox {
                 public void handle(ActionEvent event) {
                     ScreenController s1 = new ScreenController();
                     try {
+
                         s1.HotelManager(event);
                     } catch (IOException e) {
                         e.printStackTrace();

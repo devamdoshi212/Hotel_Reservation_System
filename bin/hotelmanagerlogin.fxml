@@ -24,9 +24,9 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="phoneNumber" layoutX="188.0" layoutY="138.0" prefHeight="26.0" prefWidth="157.0" promptText="Enter Your Username" />
-      <PasswordField fx:id="password" layoutX="187.0" layoutY="206.0" prefHeight="26.0" prefWidth="158.0" promptText="Enter Your Password" />
-      <Label fx:id="Status" layoutX="81.0" layoutY="76.0" prefHeight="44.0" prefWidth="255.0" textFill="#dc2d12">
+      <TextField fx:id="userName" layoutX="188.0" layoutY="138.0" prefHeight="26.0" prefWidth="157.0" promptText="Enter Your Username" />
+      <PasswordField fx:id="passWord" layoutX="187.0" layoutY="206.0" prefHeight="26.0" prefWidth="158.0" promptText="Enter Your Password" />
+      <Label fx:id="Status" layoutX="81.0" layoutY="76.0" prefHeight="36.0" prefWidth="255.0" textFill="#dc2d12">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
@@ -36,8 +36,8 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="phonenumberstatus" layoutX="187.0" layoutY="173.0" prefHeight="18.0" prefWidth="201.0" textFill="#e10d0d" />
-      <Label fx:id="passwordstatus" layoutX="187.0" layoutY="241.0" prefHeight="18.0" prefWidth="123.0" textFill="#e10d0d" />
+      <Label fx:id="usernamestatus" layoutX="187.0" layoutY="173.0" prefHeight="18.0" prefWidth="201.0" textFill="#e10d0d" />
+      <Label fx:id="passwordstatus" layoutX="187.0" layoutY="241.0" prefHeight="18.0" prefWidth="202.0" textFill="#e10d0d" />
       <Button fx:id="home" layoutX="79.0" layoutY="275.0" mnemonicParsing="false" onAction="#Home" prefHeight="36.0" prefWidth="107.0" text="Home">
          <font>
             <Font name="Arial Black" size="14.0" />
