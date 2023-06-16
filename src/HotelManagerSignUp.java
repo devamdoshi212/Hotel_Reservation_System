@@ -411,36 +411,36 @@ public class HotelManagerSignUp extends Thread{
             submitButton.setOnAction(new EventHandler <ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    try {
+                    try 
+                    {
                         System.out.println("Submmit button clicked!");
-
-                    if((availableRoomsTextField==null)||(pricePerNightTextField==null)||(storeroomtype==0))
-                    {
-                        status_Label.setText("All Fields are required");
-                    }
-                    else
-                    {
-                        if(onlyDigits(storeavailableRoomsTextField, storeavailableRoomsTextField.length()))
+                        if((availableRoomsTextField==null)||(pricePerNightTextField==null)||(storeroomtype==0))
                         {
-                            if(onlyDigits(storepricePerNightTextField, storepricePerNightTextField.length()))
-                            {
-                                aroom=Integer.parseInt(storeavailableRoomsTextField);
-                                price=Integer.parseInt(storepricePerNightTextField);
-
-                                System.out.println(aroom+" "+price+" "+storeroomtype);
-
-                            }
-                            else
-                            {
-                                status_Label.setText("Invalid value in Price Per Night");
-        
-                            }
+                            status_Label.setText("All Fields are required");
                         }
                         else
                         {
-                            status_Label.setText("Invalid value in Available Rooms");
+                            if(onlyDigits(storeavailableRoomsTextField, storeavailableRoomsTextField.length()))
+                            {
+                                if(onlyDigits(storepricePerNightTextField, storepricePerNightTextField.length()))
+                                {
+                                    aroom=Integer.parseInt(storeavailableRoomsTextField);
+                                    price=Integer.parseInt(storepricePerNightTextField);
+
+                                    System.out.println(aroom+" "+price+" "+storeroomtype);
+
+                                }
+                                else
+                                {
+                                    status_Label.setText("Invalid value in Price Per Night");
+            
+                                }
+                            }
+                            else
+                            {
+                                status_Label.setText("Invalid value in Available Rooms");
+                            }
                         }
-                    }
                     
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
