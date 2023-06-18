@@ -147,22 +147,6 @@ public class afterhotelmanagerlogin {
     
             pane4.getChildren().addAll(roomTypeLabel, roomTypeChoiceBox);
 
-            Pane pane5 = new Pane();
-            pane5.setPrefHeight(74.0);
-            pane5.setPrefWidth(462.0);
-    
-            Button submitButton = new Button("Submit");
-            submitButton.setLayoutX(177.0);
-            submitButton.setLayoutY(18.0);
-            submitButton.setMnemonicParsing(false);
-            submitButton.setPrefHeight(38.0);
-            submitButton.setPrefWidth(107.0);
-            Font buttonFont = new Font("System Bold", 15.0);
-            submitButton.setFont(buttonFont);
-    
-            pane5.getChildren().add(submitButton);
-
-
             Pane pane6 = new Pane();
             pane6.setPrefHeight(28.0);
             pane6.setPrefWidth(462.0);
@@ -177,6 +161,41 @@ public class afterhotelmanagerlogin {
             status_Label.setFont(new Font("System Bold", 15.0));
     
             pane6.getChildren().add(status_Label);
+
+            Pane pane5 = new Pane();
+            pane5.setPrefHeight(74.0);
+            pane5.setPrefWidth(462.0);
+    
+            Button logoutButton = new Button("Logout");
+            logoutButton.setLayoutX(84.0);
+            logoutButton.setLayoutY(18.0);
+            logoutButton.setPrefWidth(107.0);
+            logoutButton.setPrefHeight(38.0);
+            Font logoutButtonFont = new Font("System Bold", 15.0);
+            logoutButton.setFont(logoutButtonFont);
+
+            
+            Button submitButton = new Button("Submit");
+            submitButton.setLayoutX(268.0);
+            submitButton.setLayoutY(18.0);
+            submitButton.setPrefWidth(107.0);
+            submitButton.setPrefHeight(38.0);
+            Font submitButtonFont = new Font("System Bold", 15.0);
+            submitButton.setFont(submitButtonFont);
+            
+            pane5.getChildren().addAll(submitButton, logoutButton);
+
+            logoutButton.setOnAction(new EventHandler <ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                try {
+                    ScreenController s4 = new ScreenController();
+                    s4.HotelManager(event); 
+                } catch (Exception e) {
+                    e.getStackTrace();
+                }   
+                }
+            });
             
             submitButton.setOnAction(new EventHandler <ActionEvent>() {
                 @Override
@@ -208,6 +227,9 @@ public class afterhotelmanagerlogin {
                                     // d1.afterroomdetails();
                                     
                                     // primaryStage.close();
+                                    Database d7 = new Database();
+                                    d7.updateroomdetails(d7.retriveHotelId(managerid), price, aroom, storeroomtype);
+                                    status_Label.setText(" Details Successfully Updated");
                                     System.out.println(aroom+" "+price+" "+storeroomtype);
                                 }
                                 else
@@ -228,7 +250,7 @@ public class afterhotelmanagerlogin {
             }
         });
         
-        centerVBox.getChildren().addAll(pane1, pane2, pane3, pane4, pane5, pane6);
+        centerVBox.getChildren().addAll(pane1, pane2, pane3, pane4, pane6, pane5);
         root.setCenter(centerVBox);
     
             Scene scene = new Scene(root);

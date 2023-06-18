@@ -2,6 +2,7 @@ import java.awt.Label;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.lang.reflect.Array;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 // import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class Database{
     
@@ -311,4 +313,48 @@ public class Database{
         }
     }
 
+    public void updateroomdetails(int hotelid,int price,int aroom,int roomtype)
+    {
+        String query = "UPDATE hotel_room SET price_per_night=?,is_available=?,room_type=? WHERE hotel_id=?";
+
+        try {
+             Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, price);
+            statement.setInt(2, aroom);
+            statement.setInt(3, roomtype);
+            statement.setInt(4, hotelid);
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+        } catch (Exception e){
+            e.getStackTrace();
+        }
+        
+    }
+
+    public String[] retriveRoomType()
+    {
+        String query = "SELECT * FROM hotel_room_type";
+        String[] array = {"None"};
+        String temp;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+            int i=0;
+            while(resultSet.next()){
+                temp=resultSet.getString("room_type");
+                Array.set(array, i, temp);
+                i++;
+            }
+            return array;
+        }
+        catch (Exception e) {
+            e.getStackTrace();
+        }
+        return array;
+    }
 }

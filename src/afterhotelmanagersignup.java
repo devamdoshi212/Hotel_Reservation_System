@@ -120,7 +120,7 @@ public class afterhotelmanagersignup {
             roomTypeLabel.setPrefWidth(158.0);
             roomTypeLabel.setFont(labelFont);
     
-            String st[] ={"Delux","Normal"}; 
+            String st[] ={"Normal","Delux"}; 
             ChoiceBox roomTypeChoiceBox = new ChoiceBox (FXCollections.observableArrayList(st));
             roomTypeChoiceBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue ov, Number value, Number new_value)
