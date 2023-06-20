@@ -3,6 +3,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -53,13 +54,16 @@ public class afterhotelmanagerlogin {
             root.setMaxWidth(Double.NEGATIVE_INFINITY);
             root.setMinHeight(Double.NEGATIVE_INFINITY);
             root.setMinWidth(Double.NEGATIVE_INFINITY);
-            root.setPrefHeight(477.0);
-            root.setPrefWidth(461.0);
+            root.setPrefHeight(700.0);
+            root.setPrefWidth(900.0);
+            root.setPadding(new Insets(10));
+
     
             Label hotelNameLabel = new Label(loginClient.hotel_name);
             hotelNameLabel.setAlignment(javafx.geometry.Pos.CENTER);
             hotelNameLabel.setPrefHeight(60.0);
             hotelNameLabel.setPrefWidth(417.0);
+
             Font hotelNameFont = new Font("MV Boli", 33.0);
             hotelNameLabel.setFont(hotelNameFont);
             BorderPane.setAlignment(hotelNameLabel, javafx.geometry.Pos.CENTER);
@@ -80,20 +84,20 @@ public class afterhotelmanagerlogin {
             pane2.setPrefWidth(462.0);
     
             Label availableRoomsLabel = new Label("Available Rooms");
-            availableRoomsLabel.setLayoutX(57.0);
-            availableRoomsLabel.setLayoutY(27.0);
-            availableRoomsLabel.setPrefHeight(32.0);
-            availableRoomsLabel.setPrefWidth(158.0);
+            availableRoomsLabel.setPrefHeight(32);
+            availableRoomsLabel.setPrefWidth(158);
+            availableRoomsLabel.setLayoutX(279);
+            availableRoomsLabel.setLayoutY(28);
             Font labelFont = new Font(20.0);
             availableRoomsLabel.setFont(labelFont);
     
             TextField availableRoomsTextField = new TextField();
             //set 
             availableRoomsTextField.setText(Integer.toString(loginClient.db_aroom));
-            availableRoomsTextField.setLayoutX(267.0);
-            availableRoomsTextField.setLayoutY(27.0);
-            availableRoomsTextField.setPrefHeight(33.0);
-            availableRoomsTextField.setPrefWidth(149.0);
+            availableRoomsTextField.setPrefHeight(33);
+            availableRoomsTextField.setPrefWidth(149);
+            availableRoomsTextField.setLayoutX(527);
+            availableRoomsTextField.setLayoutY(28);
             pane2.getChildren().addAll(availableRoomsLabel, availableRoomsTextField);
             
             Pane pane3 = new Pane();
@@ -101,19 +105,19 @@ public class afterhotelmanagerlogin {
             pane3.setPrefWidth(462.0);
     
             Label pricePerNightLabel = new Label("Price per Night");
-            pricePerNightLabel.setLayoutX(56.0);
-            pricePerNightLabel.setLayoutY(25.0);
-            pricePerNightLabel.setPrefHeight(32.0);
-            pricePerNightLabel.setPrefWidth(158.0);
+            pricePerNightLabel.setPrefHeight(32);
+            pricePerNightLabel.setPrefWidth(158);
+            pricePerNightLabel.setLayoutX(278);
+            pricePerNightLabel.setLayoutY(25);
             pricePerNightLabel.setFont(labelFont);
     
             TextField pricePerNightTextField = new TextField();
             //set
             pricePerNightTextField.setText(Integer.toString(loginClient.db_price));
-            pricePerNightTextField.setLayoutX(268.0);
-            pricePerNightTextField.setLayoutY(25.0);
-            pricePerNightTextField.setPrefHeight(33.0);
-            pricePerNightTextField.setPrefWidth(149.0);
+            pricePerNightTextField.setPrefHeight(33);
+            pricePerNightTextField.setLayoutX(526);
+            pricePerNightTextField.setPrefWidth(149);
+            pricePerNightTextField.setLayoutY(25);
     
             pane3.getChildren().addAll(pricePerNightLabel, pricePerNightTextField);
 
@@ -122,10 +126,10 @@ public class afterhotelmanagerlogin {
             pane4.setPrefWidth(462.0);
     
             Label roomTypeLabel = new Label("Room Type");
-            roomTypeLabel.setLayoutX(59.0);
-            roomTypeLabel.setLayoutY(19.0);
-            roomTypeLabel.setPrefHeight(32.0);
-            roomTypeLabel.setPrefWidth(158.0);
+            roomTypeLabel.setPrefHeight(32);
+            roomTypeLabel.setPrefWidth(158);
+            roomTypeLabel.setLayoutX(277);
+            roomTypeLabel.setLayoutY(19);
             roomTypeLabel.setFont(labelFont);
     
             String st[] ={"Normal","Delux"}; 
@@ -140,46 +144,46 @@ public class afterhotelmanagerlogin {
             }
         });
     
-            roomTypeChoiceBox.setLayoutX(267.0);
-            roomTypeChoiceBox.setLayoutY(16.0);
-            roomTypeChoiceBox.setPrefHeight(32.0);
-            roomTypeChoiceBox.setPrefWidth(150.0);
+            roomTypeChoiceBox.setPrefHeight(32);
+            roomTypeChoiceBox.setPrefWidth(146);
+            roomTypeChoiceBox.setLayoutX(527);
+            roomTypeChoiceBox.setLayoutY(19);
     
             pane4.getChildren().addAll(roomTypeLabel, roomTypeChoiceBox);
 
             Pane pane6 = new Pane();
-            pane6.setPrefHeight(28.0);
-            pane6.setPrefWidth(462.0);
+            pane6.setPrefHeight(63.0);
+            pane6.setPrefWidth(900.0);
 
             Label status_Label = new Label("");
             status_Label.setAlignment(javafx.geometry.Pos.CENTER);
-            status_Label.setLayoutX(59.0);
-            status_Label.setLayoutY(5.0);
-            status_Label.setPrefHeight(31.0);
-            status_Label.setPrefWidth(343.0);
+            status_Label.setPrefHeight(31);
+            status_Label.setPrefWidth(872);
+            status_Label.setLayoutX(14);
+            status_Label.setLayoutY(16);
             status_Label.setTextFill(Color.web("#f40000"));
             status_Label.setFont(new Font("System Bold", 15.0));
     
             pane6.getChildren().add(status_Label);
 
             Pane pane5 = new Pane();
-            pane5.setPrefHeight(74.0);
-            pane5.setPrefWidth(462.0);
+            pane5.setPrefHeight(99.0);
+            pane5.setPrefWidth(900.0);
     
             Button logoutButton = new Button("Logout");
-            logoutButton.setLayoutX(84.0);
-            logoutButton.setLayoutY(18.0);
-            logoutButton.setPrefWidth(107.0);
-            logoutButton.setPrefHeight(38.0);
+            logoutButton.setPrefHeight(55);
+            logoutButton.setPrefWidth(137);
+            logoutButton.setLayoutX(267);
+            logoutButton.setLayoutY(30);
             Font logoutButtonFont = new Font("System Bold", 15.0);
             logoutButton.setFont(logoutButtonFont);
 
             
             Button submitButton = new Button("Submit");
-            submitButton.setLayoutX(268.0);
-            submitButton.setLayoutY(18.0);
-            submitButton.setPrefWidth(107.0);
-            submitButton.setPrefHeight(38.0);
+            submitButton.setPrefHeight(55);
+            submitButton.setPrefWidth(137);
+            submitButton.setLayoutX(532);
+            submitButton.setLayoutY(30);
             Font submitButtonFont = new Font("System Bold", 15.0);
             submitButton.setFont(submitButtonFont);
             

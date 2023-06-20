@@ -7,24 +7,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HotelManagerController">
    <children>
-      <Label alignment="CENTER" ellipsisString="" layoutX="77.0" layoutY="74.0" prefHeight="82.0" prefWidth="256.0" text="Hotel Manager">
+      <Label alignment="CENTER" ellipsisString="" layoutX="20.0" layoutY="165.0" prefHeight="109.0" prefWidth="862.0" text="Hotel Manager">
          <font>
-            <Font name="MV Boli" size="36.0" />
+            <Font name="MV Boli" size="49.0" />
          </font>
       </Label>
-      <Button fx:id="hotelManagerSignUp" layoutX="130.0" layoutY="169.0" mnemonicParsing="false" onAction="#hotelManagerSignUp" prefHeight="45.0" prefWidth="143.0" text="SignUp">
+      <Button fx:id="hotelManagerSignUp" layoutX="379.0" layoutY="316.0" mnemonicParsing="false" onAction="#hotelManagerSignUp" prefHeight="45.0" prefWidth="143.0" text="SignUp">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="hotelManagerLogin" layoutX="130.0" layoutY="238.0" mnemonicParsing="false" onAction="#hotelManagerLogin" prefHeight="45.0" prefWidth="143.0" text="Login">
+      <Button fx:id="hotelManagerLogin" layoutX="379.0" layoutY="407.0" mnemonicParsing="false" onAction="#hotelManagerLogin" prefHeight="45.0" prefWidth="143.0" text="Login">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button fx:id="UserLogin" layoutX="287.0" layoutY="22.0" mnemonicParsing="false" onAction="#UserLogin" prefHeight="22.0" prefWidth="101.0" text="User Login">
+      <Button fx:id="UserLogin" layoutX="717.0" layoutY="41.0" mnemonicParsing="false" onAction="#UserLogin" prefHeight="46.0" prefWidth="132.0" text="User Login">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
    </children>

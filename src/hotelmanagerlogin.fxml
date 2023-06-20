@@ -9,36 +9,36 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HotelManagerLogin">
    <children>
-      <Label layoutX="21.0" prefHeight="91.0" prefWidth="386.0" text="Hotel Manager Login Dashboard" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="28.0" layoutY="30.0" prefHeight="91.0" prefWidth="848.0" text="Hotel Manager Login Dashboard" textAlignment="CENTER">
          <font>
-            <Font name="MV Boli" size="25.0" />
+            <Font name="MV Boli" size="42.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="129.0" prefHeight="44.0" prefWidth="114.0" text="Username">
-         <font>
-            <Font name="Arial Black" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="36.0" layoutY="197.0" prefHeight="44.0" prefWidth="107.0" text="Password">
+      <Label layoutX="289.0" layoutY="260.0" prefHeight="44.0" prefWidth="114.0" text="Username">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="userName" layoutX="188.0" layoutY="138.0" prefHeight="26.0" prefWidth="157.0" promptText="Enter Your Username" />
-      <PasswordField fx:id="passWord" layoutX="187.0" layoutY="206.0" prefHeight="26.0" prefWidth="158.0" promptText="Enter Your Password" />
-      <Label fx:id="Status" layoutX="81.0" layoutY="76.0" prefHeight="36.0" prefWidth="255.0" textFill="#dc2d12">
+      <Label layoutX="289.0" layoutY="319.0" prefHeight="44.0" prefWidth="107.0" text="Password">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="LoginSumbit" layoutX="234.0" layoutY="275.0" mnemonicParsing="false" onAction="#HoterlManagerLoginSumbit" prefHeight="36.0" prefWidth="107.0" text="Login">
+      <TextField fx:id="userName" layoutX="437.0" layoutY="269.0" prefHeight="26.0" prefWidth="157.0" promptText="Enter Your Username" />
+      <PasswordField fx:id="passWord" layoutX="437.0" layoutY="328.0" prefHeight="26.0" prefWidth="158.0" promptText="Enter Your Password" />
+      <Label fx:id="Status" alignment="CENTER" layoutX="288.0" layoutY="167.0" prefHeight="36.0" prefWidth="307.0" textFill="#dc2d12">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="LoginSumbit" layoutX="483.0" layoutY="436.0" mnemonicParsing="false" onAction="#HoterlManagerLoginSumbit" prefHeight="36.0" prefWidth="107.0" text="Login">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="usernamestatus" layoutX="187.0" layoutY="173.0" prefHeight="18.0" prefWidth="201.0" textFill="#e10d0d" />
-      <Label fx:id="passwordstatus" layoutX="187.0" layoutY="241.0" prefHeight="18.0" prefWidth="202.0" textFill="#e10d0d" />
-      <Button fx:id="home" layoutX="79.0" layoutY="275.0" mnemonicParsing="false" onAction="#Home" prefHeight="36.0" prefWidth="107.0" text="Home">
+      <Label fx:id="usernamestatus" layoutX="436.0" layoutY="295.0" prefHeight="18.0" prefWidth="201.0" textFill="#e10d0d" />
+      <Label fx:id="passwordstatus" layoutX="436.0" layoutY="363.0" prefHeight="18.0" prefWidth="202.0" textFill="#e10d0d" />
+      <Button fx:id="home" layoutX="286.0" layoutY="436.0" mnemonicParsing="false" onAction="#Home" prefHeight="36.0" prefWidth="107.0" text="Home">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>

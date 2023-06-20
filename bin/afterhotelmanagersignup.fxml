@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Label alignment="CENTER" prefHeight="60.0" prefWidth="417.0" text="Hotel name" BorderPane.alignment="CENTER">
@@ -24,46 +23,51 @@
             <Pane prefHeight="65.0" prefWidth="462.0" />
             <Pane prefHeight="78.0" prefWidth="462.0">
                <children>
-                  <Label layoutX="57.0" layoutY="27.0" prefHeight="32.0" prefWidth="158.0" text="Available Rooms">
+                  <Label layoutX="279.0" layoutY="28.0" prefHeight="32.0" prefWidth="158.0" text="Available Rooms">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="267.0" layoutY="27.0" prefHeight="33.0" prefWidth="149.0" />
+                  <TextField layoutX="527.0" layoutY="28.0" prefHeight="33.0" prefWidth="149.0" />
                </children>
             </Pane>
             <Pane prefHeight="82.0" prefWidth="462.0">
                <children>
-                  <Label layoutX="56.0" layoutY="25.0" prefHeight="32.0" prefWidth="158.0" text="Price per Night">
+                  <Label layoutX="278.0" layoutY="25.0" prefHeight="32.0" prefWidth="158.0" text="Price per Night">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="268.0" layoutY="25.0" prefHeight="33.0" prefWidth="149.0" />
+                  <TextField layoutX="526.0" layoutY="25.0" prefHeight="33.0" prefWidth="149.0" />
                </children>
             </Pane>
             <Pane prefHeight="69.0" prefWidth="462.0">
                <children>
-                  <Label layoutX="59.0" layoutY="19.0" prefHeight="32.0" prefWidth="158.0" text="Room Type">
+                  <Label layoutX="277.0" layoutY="19.0" prefHeight="32.0" prefWidth="158.0" text="Room Type">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ChoiceBox layoutX="267.0" layoutY="16.0" prefHeight="32.0" prefWidth="150.0" />
+                  <ChoiceBox layoutX="527.0" layoutY="19.0" prefHeight="32.0" prefWidth="146.0" />
                </children>
             </Pane>
-            <Pane prefHeight="74.0" prefWidth="462.0">
+            <Pane prefHeight="99.0" prefWidth="900.0">
                <children>
-                  <Button layoutX="177.0" layoutY="18.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" text="Submit">
+                  <Button layoutX="532.0" layoutY="30.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="137.0" text="Submit">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="267.0" layoutY="30.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="137.0" text="Logout">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
-            <Pane prefHeight="26.0" prefWidth="462.0">
+            <Pane prefHeight="63.0" prefWidth="900.0">
                <children>
-                  <Label alignment="CENTER" layoutX="59.0" layoutY="5.0" prefHeight="31.0" prefWidth="343.0" text="sdjsdf" textFill="#f40000">
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="31.0" prefWidth="872.0" text="sdjsdf" textFill="#f40000">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
