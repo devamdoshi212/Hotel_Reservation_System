@@ -62,7 +62,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ChoiceBox layoutX="505.0" layoutY="18.0" prefHeight="25.0" prefWidth="174.0" />
+                  <ChoiceBox layoutX="505.0" layoutY="18.0" prefHeight="25.0" prefWidth="176.0" />
                </children>
             </Pane>
             <Pane prefHeight="62.0" prefWidth="566.0">

@@ -77,7 +77,7 @@ public class afterbooknow {
         DatePicker checkInDatePicker = new DatePicker();
         checkInDatePicker.setLayoutX(503.0);
         checkInDatePicker.setLayoutY(19.0);
-        checkInDatePicker.setMinHeight(System.currentTimeMillis() -1000);
+        // checkInDatePicker.setMinHeight(System.currentTimeMillis() -1000);
         pane3.getChildren().addAll(checkInDateLabel, checkInDatePicker);
 
         Pane pane4 = new Pane();
