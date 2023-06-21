@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 // import java.sql.ResultSet;
 // import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -18,8 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.skin.DatePickerSkin;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -116,6 +120,14 @@ public void explore_hotel(ActionEvent event,String db_name) throws Exception
         leftPane.setPrefHeight(100);
         leftPane.setPrefWidth(298);
 
+        VBox leftsidecontent = new VBox();
+        leftsidecontent.setPrefHeight(668);
+        leftsidecontent.setPrefWidth(299);
+
+        Pane user = new Pane();
+        user.prefHeight(114);
+        user.prefWidth(300);
+
         Label userNameLabel = new Label("Welcome "+db_name);
         userNameLabel.setLayoutX(14);
         userNameLabel.setLayoutY(21);
@@ -123,7 +135,26 @@ public void explore_hotel(ActionEvent event,String db_name) throws Exception
         userNameLabel.setPrefWidth(278);
         userNameLabel.setFont(Font.font("Symbol", 23));
 
-        leftPane.getChildren().addAll(userNameLabel);
+        user.getChildren().add(userNameLabel);
+
+        Pane date = new Pane();
+        date.prefHeight(270);
+        date.prefWidth(300);
+        
+        DatePickerSkin datePickerSkin = new DatePickerSkin(new DatePicker(LocalDate.now()));
+        // datePickerSkin.getPopupContent();
+        // datePickerSkin.setEditable(false);
+        // datePickerSkin.setLayoutX(14.0);
+        // datePickerSkin.setLayoutY(110.0);
+        // datePickerSkin.setPrefHeight(25.0);
+        // datePickerSkin.setPrefWidth(268.0);
+        
+        // leftPane.getChildren().addAll(userNameLabel,datePickerSkin.getPopupContent());
+        
+        date.getChildren().add(datePickerSkin.getPopupContent());
+
+        leftsidecontent.getChildren().addAll(user,date);
+        leftPane.getChildren().add(leftsidecontent);
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setPrefHeight(578);
@@ -231,7 +262,7 @@ public void explore_hotel(ActionEvent event,String db_name) throws Exception
             public void handle(ActionEvent event) {
                 afterbooknow t1 = new afterbooknow();
                 try {
-                    t1.try_1(event,db_hotel_name);
+                    t1.try_1(event,db_hotel_name,db_name);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

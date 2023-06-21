@@ -23,56 +23,12 @@
             <Pane prefHeight="62.0" prefWidth="566.0" />
             <Pane prefHeight="62.0" prefWidth="566.0">
                <children>
-                  <Label layoutX="97.0" layoutY="15.0" prefHeight="32.0" prefWidth="158.0" text="Available Rooms">
+                  <Label layoutX="227.0" layoutY="15.0" prefHeight="32.0" prefWidth="158.0" text="Available Rooms">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="332.0" layoutY="15.0" prefHeight="32.0" prefWidth="175.0" text="5">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane prefHeight="62.0" prefWidth="566.0">
-               <children>
-                  <Label layoutX="96.0" layoutY="15.0" prefHeight="32.0" prefWidth="138.0" text="Check in date">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <DatePicker layoutX="333.0" layoutY="19.0" />
-               </children>
-            </Pane>
-            <Pane prefHeight="62.0" prefWidth="566.0">
-               <children>
-                  <Label layoutX="96.0" layoutY="15.0" prefHeight="32.0" prefWidth="138.0" text="Check out date">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <DatePicker layoutX="334.0" layoutY="19.0" />
-               </children>
-            </Pane>
-            <Pane prefHeight="62.0" prefWidth="566.0">
-               <children>
-                  <Label layoutX="97.0" layoutY="14.0" prefHeight="32.0" prefWidth="133.0" text="No. of Guests">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <ChoiceBox layoutX="335.0" layoutY="18.0" prefHeight="25.0" prefWidth="174.0" />
-               </children>
-            </Pane>
-            <Pane prefHeight="62.0" prefWidth="566.0">
-               <children>
-                  <Label layoutX="98.0" layoutY="14.0" prefHeight="32.0" prefWidth="133.0" text="Total Price">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="337.0" layoutY="14.0" prefHeight="32.0" prefWidth="172.0" text="10000/-">
+                  <Label alignment="CENTER" layoutX="502.0" layoutY="15.0" prefHeight="32.0" prefWidth="175.0" text="5">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -81,12 +37,56 @@
             </Pane>
             <Pane prefHeight="62.0" prefWidth="566.0">
                <children>
-                  <Button layoutX="360.0" layoutY="16.0" mnemonicParsing="false" text="Book Now">
+                  <Label layoutX="226.0" layoutY="15.0" prefHeight="32.0" prefWidth="138.0" text="Check in date">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <DatePicker layoutX="503.0" layoutY="19.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="62.0" prefWidth="566.0">
+               <children>
+                  <Label layoutX="224.0" layoutY="15.0" prefHeight="32.0" prefWidth="138.0" text="Check out date">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <DatePicker layoutX="504.0" layoutY="19.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="62.0" prefWidth="566.0">
+               <children>
+                  <Label layoutX="222.0" layoutY="14.0" prefHeight="32.0" prefWidth="133.0" text="No. of Guests">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox layoutX="505.0" layoutY="18.0" prefHeight="25.0" prefWidth="174.0" />
+               </children>
+            </Pane>
+            <Pane prefHeight="62.0" prefWidth="566.0">
+               <children>
+                  <Label layoutX="221.0" layoutY="14.0" prefHeight="32.0" prefWidth="133.0" text="Total Price">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="507.0" layoutY="14.0" prefHeight="32.0" prefWidth="172.0" text="10000/-">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="78.0" prefWidth="900.0">
+               <children>
+                  <Button layoutX="523.0" layoutY="18.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="132.0" text="Book Now">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Button layoutX="120.0" layoutY="16.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" text="Back">
+                  <Button layoutX="247.0" layoutY="18.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="132.0" text="Back">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
