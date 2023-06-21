@@ -357,4 +357,9 @@ public class Database{
         }
         return array;
     }
+
+    public void insertResDetails(String checkindate,String checkoutdate,String guest,String price,int roomid,int guestid )
+    {
+
+    }
 }

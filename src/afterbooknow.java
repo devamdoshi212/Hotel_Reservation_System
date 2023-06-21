@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -77,6 +80,14 @@ public class afterbooknow {
         DatePicker checkInDatePicker = new DatePicker();
         checkInDatePicker.setLayoutX(503.0);
         checkInDatePicker.setLayoutY(19.0);
+        checkInDatePicker.setDayCellFactory(picker-> new DateCell(){
+            public void updateItem(LocalDate date,boolean empty)
+            {
+                super.updateItem(date, empty);
+                LocalDate today = LocalDate.now();
+                setDisable(empty|| date.compareTo(today)<0);
+            }
+        });
         // checkInDatePicker.setMinHeight(System.currentTimeMillis() -1000);
         pane3.getChildren().addAll(checkInDateLabel, checkInDatePicker);
 
@@ -95,6 +106,14 @@ public class afterbooknow {
         DatePicker checkOutDatePicker = new DatePicker();
         checkOutDatePicker.setLayoutX(504.0);
         checkOutDatePicker.setLayoutY(19.0);
+        checkOutDatePicker.setDayCellFactory(picker-> new DateCell(){
+            public void updateItem(LocalDate date,boolean empty)
+            {
+                super.updateItem(date, empty);
+                LocalDate today = LocalDate.now();
+                setDisable(empty|| date.compareTo(today)<0);
+            }
+        });
         pane4.getChildren().addAll(checkOutDateLabel, checkOutDatePicker);
 
         Pane pane5 = new Pane();
