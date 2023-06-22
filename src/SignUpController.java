@@ -172,7 +172,7 @@ public class SignUpController {
 
                                                 //redirect to main window
                                                 mainwindow t1 = new mainwindow();
-                                                t1.explore_hotel(event,fname);
+                                                t1.explore_hotel(event,fname,pnumber);
                                         }
                                         else if(d1.pnumber_verify==1)
                                         {

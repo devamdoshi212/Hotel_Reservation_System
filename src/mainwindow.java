@@ -42,7 +42,7 @@ String password = "";
 String query = "SELECT * FROM hotel";
 String query1 = "SELECT * FROM hotel_room";
 
-public void explore_hotel(ActionEvent event,String db_name) throws Exception
+public void explore_hotel(ActionEvent event,String db_name,String pnumber) throws Exception
 {
     try 
     {
@@ -262,7 +262,7 @@ public void explore_hotel(ActionEvent event,String db_name) throws Exception
             public void handle(ActionEvent event) {
                 afterbooknow t1 = new afterbooknow();
                 try {
-                    t1.try_1(event,db_hotel_name,db_name);
+                    t1.try_1(event,db_hotel_name,db_name,Integer.parseInt(db_hotel_id),pnumber);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

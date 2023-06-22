@@ -37,7 +37,7 @@ public class LoginController {
                     {
                         Status.setText("Login Success");
                         mainwindow t1 = new mainwindow();
-                        t1.explore_hotel(event,d2.db_name);
+                        t1.explore_hotel(event,d2.db_name,d2.db_phone_number);
                     }
                     else
                     {

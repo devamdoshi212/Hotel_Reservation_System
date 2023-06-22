@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.lang.reflect.Array;
 import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,12 +25,14 @@ public class Database{
     int hotel_manager_login_verify=0;
     int db_hotel_manager_id;
 
+    int db_room_id;
     int db_price;
     int db_aroom;
     int db_roomtype;
-
+    
     String hotel_name;
     String db_name;
+    String db_phone_number;
     Database(){}
 
     public void dbconnect_SignUp(String fname,String lname,String e_mail,String pnumber,String anumber,String cityname,String pass) throws Exception{
@@ -65,7 +68,6 @@ public class Database{
     public void dbconnect_Login(String pnumber,String pass)
     {
         String query = "SELECT * FROM guest";
-        String db_phone_number;
         String db_password;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -358,8 +360,77 @@ public class Database{
         return array;
     }
 
-    public void insertResDetails(String checkindate,String checkoutdate,String guest,String price,int roomid,int guestid )
+    public void insertResDetails(Date checkindate,Date checkoutdate,String guest,String price,int roomid,int guestid )
+    {
+        String sql = "INSERT INTO reservation(guest_id, check_in_date, check_out_date, num_of_guests, total_price, room_id) VALUES (?,?,?,?,?,?)";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, guestid);
+            statement.setDate(2, checkindate);
+            statement.setDate(3, checkoutdate);
+            statement.setInt(4, Integer.parseInt(guest));
+            statement.setInt(5, Integer.parseInt(price));
+            statement.setInt(6, roomid);
+
+            int rowsAffected = statement.executeUpdate();
+            System.out.println("Done"+ rowsAffected);
+            System.out.println("Reservation successfully");
+            
+            statement.close();
+            connection.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void retriveAllHotelRoomDetailsbyhotelid(int hotelid)
     {
 
+        String query = "SELECT * FROM hotel_room WHERE hotel_id=?";
+        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, hotelid);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                db_room_id = resultSet.getInt("room_id");
+                db_price = resultSet.getInt("price_per_night");
+                db_aroom = resultSet.getInt("is_available");
+                db_roomtype = resultSet.getInt("room_type");
+
+            }
+        }
+        catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
+    public int retriveguestId(String pnumber)
+    {
+        String query = "SELECT guest_id FROM guest WHERE phone_number=?";
+        int id;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, username, password);
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, pnumber);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                id = resultSet.getInt("guest_id");
+                return id;
+            }
+        }
+        catch (Exception e) {
+            e.getStackTrace();
+            return 0;
+        }
+        return 0;
     }
 }

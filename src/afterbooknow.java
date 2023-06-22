@@ -20,8 +20,10 @@ import javafx.stage.Stage;
 
 public class afterbooknow {
 
-    public void try_1(ActionEvent event,String hname,String username) throws Exception{
+    public void try_1(ActionEvent event,String hname,String username,int hotel_id,String pnumber) throws Exception{
 
+        Database d9 = new Database();
+        d9.retriveAllHotelRoomDetailsbyhotelid(hotel_id);
         Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         BorderPane root = new BorderPane();
@@ -55,7 +57,7 @@ public class afterbooknow {
         availableRoomsLabel.setPrefWidth(158.0);
         availableRoomsLabel.setFont(new Font(20.0));
 
-        Label availableRoomsValueLabel = new Label("5");
+        Label availableRoomsValueLabel = new Label(Integer.toString(d9.db_aroom));
         availableRoomsValueLabel.setAlignment(javafx.geometry.Pos.CENTER);
         availableRoomsValueLabel.setLayoutX(502.0);
         availableRoomsValueLabel.setLayoutY(15.0);
@@ -88,7 +90,6 @@ public class afterbooknow {
                 setDisable(empty|| date.compareTo(today)<0);
             }
         });
-        // checkInDatePicker.setMinHeight(System.currentTimeMillis() -1000);
         pane3.getChildren().addAll(checkInDateLabel, checkInDatePicker);
 
         Pane pane4 = new Pane();
@@ -148,7 +149,7 @@ public class afterbooknow {
         totalPriceLabel.setPrefWidth(133.0);
         totalPriceLabel.setFont(new Font(20.0));
 
-        Label totalPriceValueLabel = new Label("10000/-");
+        Label totalPriceValueLabel = new Label(Integer.toString(d9.db_price));
         totalPriceValueLabel.setAlignment(javafx.geometry.Pos.CENTER);
         totalPriceValueLabel.setContentDisplay(javafx.scene.control.ContentDisplay.CENTER);
         totalPriceValueLabel.setLayoutX(507.0);
@@ -183,10 +184,9 @@ public class afterbooknow {
         backButton.setOnAction(new EventHandler <ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                // afterbooknow t1 = new afterbooknow();
                 try {
                     mainwindow t4 = new mainwindow();
-                    t4.explore_hotel(event,username);
+                    t4.explore_hotel(event,username,pnumber);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -197,10 +197,10 @@ public class afterbooknow {
         bookNowButton.setOnAction(new EventHandler <ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                // afterbooknow t1 = new afterbooknow();
                 try {
+                    int gid = d9.retriveguestId(pnumber);
+                    d9.insertResDetails(checkInDatePicker.getValue(), checkOutDatePicker.getValue(), numOfGuestsChoiceBox.getValue(), Integer.toString(d9.db_price), d9.db_room_id,gid);
                     System.out.println("Book Now button clicked!");
-                    // t1.try_1(event,db_hotel_name);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
