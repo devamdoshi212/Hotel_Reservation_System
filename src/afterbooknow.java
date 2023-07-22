@@ -20,11 +20,11 @@ import javafx.stage.Stage;
 
 public class afterbooknow {
 
-    public void try_1(ActionEvent event,String hname,String username,int hotel_id,String pnumber) throws Exception{
+    public void try_1(ActionEvent event, String hname, String username, int hotel_id, String pnumber) throws Exception {
 
         Database d9 = new Database();
         d9.retriveAllHotelRoomDetailsbyhotelid(hotel_id);
-        Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         BorderPane root = new BorderPane();
 
@@ -77,17 +77,15 @@ public class afterbooknow {
         checkInDateLabel.setPrefHeight(32.0);
         checkInDateLabel.setPrefWidth(138.0);
         checkInDateLabel.setFont(new Font(20.0));
-        
 
         DatePicker checkInDatePicker = new DatePicker();
         checkInDatePicker.setLayoutX(503.0);
         checkInDatePicker.setLayoutY(19.0);
-        checkInDatePicker.setDayCellFactory(picker-> new DateCell(){
-            public void updateItem(LocalDate date,boolean empty)
-            {
+        checkInDatePicker.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
                 LocalDate today = LocalDate.now();
-                setDisable(empty|| date.compareTo(today)<0);
+                setDisable(empty || date.compareTo(today) < 0);
             }
         });
         pane3.getChildren().addAll(checkInDateLabel, checkInDatePicker);
@@ -107,12 +105,11 @@ public class afterbooknow {
         DatePicker checkOutDatePicker = new DatePicker();
         checkOutDatePicker.setLayoutX(504.0);
         checkOutDatePicker.setLayoutY(19.0);
-        checkOutDatePicker.setDayCellFactory(picker-> new DateCell(){
-            public void updateItem(LocalDate date,boolean empty)
-            {
+        checkOutDatePicker.setDayCellFactory(picker -> new DateCell() {
+            public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
                 LocalDate today = LocalDate.now();
-                setDisable(empty|| date.compareTo(today)<0);
+                setDisable(empty || date.compareTo(today) < 0);
             }
         });
         pane4.getChildren().addAll(checkOutDateLabel, checkOutDatePicker);
@@ -129,7 +126,7 @@ public class afterbooknow {
         numOfGuestsLabel.setPrefWidth(133.0);
         numOfGuestsLabel.setFont(new Font(20.0));
 
-        String[] sct = {"1","2","3"}; 
+        String[] sct = { "1", "2", "3" };
         ChoiceBox numOfGuestsChoiceBox = new ChoiceBox(FXCollections.observableArrayList(sct));
         numOfGuestsChoiceBox.setPrefHeight(25);
         numOfGuestsChoiceBox.setPrefWidth(176);
@@ -181,12 +178,12 @@ public class afterbooknow {
         backButton.setFont(new Font("System Bold", 15.0));
         pane7.getChildren().addAll(bookNowButton, backButton);
 
-        backButton.setOnAction(new EventHandler <ActionEvent>() {
+        backButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
                     mainwindow t4 = new mainwindow();
-                    t4.explore_hotel(event,username,pnumber);
+                    t4.explore_hotel(event, username, pnumber);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -194,12 +191,14 @@ public class afterbooknow {
             }
         });
 
-        bookNowButton.setOnAction(new EventHandler <ActionEvent>() {
+        bookNowButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
                     int gid = d9.retriveguestId(pnumber);
-                    d9.insertResDetails(checkInDatePicker.getValue(), checkOutDatePicker.getValue(), numOfGuestsChoiceBox.getValue(), Integer.toString(d9.db_price), d9.db_room_id,gid);
+                    // d9.insertResDetails(checkInDatePicker.getValue(),
+                    // checkOutDatePicker.getValue(), numOfGuestsChoiceBox.getValue(),
+                    // Integer.toString(d9.db_price), d9.db_room_id,gid);
                     System.out.println("Book Now button clicked!");
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -209,8 +208,7 @@ public class afterbooknow {
 
         primaryStage.setTitle("Booking");
         primaryStage.setScene(new Scene(root, 900, 700));
-        primaryStage.show();    
+        primaryStage.show();
     }
-
 
 }
